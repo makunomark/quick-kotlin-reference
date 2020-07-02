@@ -15,13 +15,13 @@ Definitions of higher order functions
 - Higher Order functions are functions that take lambdas as arguments or return them. (In Kotlin's context)
 - Higher order functions is a function that takes another function as an argument or returns one.(Seems language agnostic)
 
-Benefits Higher order functions
+Benefits of higher order functions
 
 - Remove code duplication
 - Help simplify code
 - Build nice abstractions
 
-Inline functions:
+Benefits of inline functions:
 
 - help reduce perfomance overhead associated with lambdas.
 - enable flexible control flow with lambdas
