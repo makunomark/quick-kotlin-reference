@@ -4,7 +4,7 @@
 
 What we will cover:
 
-- [Function types](/function-types-8.1.md)
+- [Function types](function-types-8.1.md)
 - Higher order functions and their use for structuring code
 - Inline functions
 - Non-local returns and labels
