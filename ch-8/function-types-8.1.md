@@ -20,7 +20,34 @@ Example 2: Explicitly declaring the type
  val action: () -> Unit = { print(42) }
 ```
 
-To declare a function type, you put the cuntion parameter types in parentheses followed by an arrow and the return type of the function. For example
+Example 3: The return type of a function type can be marked as nullable
+
+```kotlin
+ val sum: (Int, Int) -> Int? = { null }
+```
+
+Example 4: Return type variable marked as nullable
+
+```kotlin
+ val sum: ((Int, Int) -> Int)? = null
+```
+
+Example 5: With names of parameter function type specified. Parameter names dont affect type matching.
+
+```kotlin
+ fun performRequest(
+     url: String,
+     callback: (code: Int, content: String) -> Unit
+ ){
+     /** does awesome request stuff **/
+ }
+
+ >>> val url = "http://kotl.in"
+ >>> performRequest(url){code, content -> /** does some cool stuff **/ }
+ >>> performRequest(url){code, page -> /** does some cool stuff **/ } //notice we changed content to page.
+```
+
+To declare a function type, you put the function parameter types in parentheses followed by an arrow and the return type of the function. For example
 
 ```kotlin
 (Int, String) -> Unit
@@ -28,3 +55,10 @@ To declare a function type, you put the cuntion parameter types in parentheses f
 // Int and String: Parameter type
 // Unit: Return type
 ```
+
+NB.
+
+- Unit type is used to specify that a function returns no meaningful value
+- Unit type **cannot** be ommited in function type declaration
+
+Next: [Calling functions passed as arguments](calling-functions-passed-as-arguments-8.1.1.md)

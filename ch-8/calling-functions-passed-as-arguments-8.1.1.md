@@ -1,0 +1,43 @@
+## 8.1.1 Calling functions passed as arguments
+
+```kotlin
+fun twoAndThree(operation: (Int, Int) -> Int){
+    val result = operation(2,3)
+    println("The result is $result")
+}
+
+>>> twoAndThree{ a, b -> a + b }
+The result is 5
+>>> twoAndThree{ a, b -> a * b }
+The result is 6
+```
+
+The syntax of calling the function passed as an argument is the same as calling a regular function.
+
+**Scenario: Reimplementing `filter` function on `String`.**
+
+> This is only for simplicity. The generic function that works on a collection of any elements works in the same way.
+
+- The declaration:
+
+```kotlin
+fun String.filter(predicate: (Char) -> Boolean): String
+```
+
+- `filter` takes a predicate funtion that takes a Character parameter and returns a Boolean result.
+- The Boolean is true if the Character passed to the predicate needs to be present in the resulting string. It's false otherwise.
+- The implementation:
+
+```kotlin
+fun String.filter(predicate: (Char) -> Boolean): String {
+    val sb = StringBuilder()
+    for(index in 0 until length){
+        val element = get(index)
+        if(predicate(element)) sb.append(element)
+    }
+    return sb.toString()
+}
+
+>>> println("ab1c".filter{it in 'a'...'z'})
+abc
+```
